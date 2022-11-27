@@ -1,0 +1,176 @@
+<style>
+  * {
+    overflow: hidden;
+  }
+  .progress {
+    width: 158.4px;
+    height: 26.4px;
+    -webkit-mask: linear-gradient(90deg, #474bff 70%, #0000 0) left/20% 100%;
+    background: linear-gradient(#474bff 0 0) left/0% 100% no-repeat #dbdcef;
+    animation: progress-422c3u 1.2s infinite steps(6);
+  }
+
+  @keyframes progress-422c3u {
+    100% {
+      background-size: 120% 100%;
+    }
+  }
+  .pro {
+    width: 100%;
+    height: 300px;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #loader {
+    /* display: none; */
+    width: 100%;
+    height: 100vh;
+  }
+  .author {
+    display: none;
+  }
+</style>
+
+<div class="container" id="main-div">
+  <h1 class="col-lg-6 col-md-10 col-sm-10 mt-4"><%= title %></h1>
+
+  <hr class="mb-4" />
+
+  <!-- Message Area -->
+  <% if (messages.length > 0) { %>
+  <div id="messageArea" class="alert alert-danger"><%= messages %></div>
+  <% } %>
+
+  <div class="row justify-content-lg-center g-3">
+    <form method="POST" class="col-lg-6 col-md-10 col-sm-10" id="my">
+      <div class="form-group mb-2">
+        <label for="surveyName">Survey Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="surveyName"
+          placeholder="Enter the Name"
+          name="Name"
+          value="<%= survey.Name %>"
+          required
+        />
+      </div>
+
+      <div class="form-group mb-2">
+        <label for="surveyDescription">Survey Description</label>
+        <textarea
+          class="form-control"
+          id="surveyDescription"
+          rows="3"
+          name="Description"
+          placeholder="Enter the Description"
+          required
+        >
+<%= survey.Description %></textarea
+        >
+      </div>
+
+      <div class="form-group mb-2">
+        <label for="startDate">Start Date</label>
+        <input
+          type="datetime-local"
+          class="form-control"
+          id="startDate"
+          placeholder="Enter the Start Date"
+          name="StartDate"
+          value="<%= survey.StartDate %>"
+          required
+        />
+      </div>
+
+      <div class="form-group mb-2">
+        <label for="endDate">End Date</label>
+        <input
+          type="datetime-local"
+          class="form-control"
+          id="endDate"
+          placeholder="Enter the End Date"
+          name="EndDate"
+          value="<%= survey.EndDate %>"
+          required
+        />
+      </div>
+
+      <div class="form-check mb-2">
+        <label class="form-check-label" for="isPublishedField">Published</label>
+        <input type="checkbox" class="form-check-input" id="isPublishedField"
+        placeholder="Set published status" name="IsPublished" value="" <%=
+        survey.IsPublished ? "checked" : "" %> >
+      </div>
+
+      <div class="mt-4 mb-2">
+        <button class="btn btn-primary" type="submit">
+          <i class="fas fa-edit"></i>&nbsp;Submit
+        </button>
+
+        <button class="btn btn-warning cancel-btn" type="button">
+          <i class="fas fa-undo"></i>&nbsp;Cancel
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="pro" id="loader">
+  <h1 id="loader-l1">Creating your Survey</h1>
+  <div class="progress"></div>
+  <p id="counter">5</p>
+</div>
+<script>
+  const checkBox = document.getElementById("isPublishedField");
+
+  const counter = document.getElementById("counter");
+  const main = document.getElementById("main-div");
+  const animation = document.getElementById("loader");
+  const myform = document.getElementById("my");
+  const myForm = document.getElementById("my");
+  const loader_l = document.getElementById("loader-l1");
+  myForm.addEventListener("submit", handleSubmit);
+  var submitTimer;
+
+  function handleSubmit(event) {
+    console.log("submitTimer set");
+    event.preventDefault();
+    timer();
+    submitTimer = setTimeout(() => {
+      this.submit();
+      console.log("Submitted after 5 seconds");
+    }, 5500);
+  }
+  function submit() {
+    myForm.addEventListener("submit", () => {
+      event.preventDefault();
+      setTimeout(() => {
+        alert("enterd");
+        this.submit();
+        alert("left");
+      }, 2000);
+    });
+  }
+
+  function timer() {
+    document.getElementById("loader").scrollIntoView();
+    var i = 5;
+    setInterval(() => {
+      counter.textContent = i;
+      i--;
+      if (i === 0) {
+        counter.textContent = 0;
+
+        this.submit();
+        clearInterval();
+      } else if (i === 2) {
+        if (checkBox.checked === true) {
+          loader_l.innerText = "Publishing...";
+        }
+      }
+    }, 980);
+  }
+</script>

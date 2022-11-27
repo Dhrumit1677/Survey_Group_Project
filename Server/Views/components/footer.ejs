@@ -1,0 +1,19 @@
+<!-- Footer Navigation -->
+<nav class="container fixed-bottom">
+    <div class="">
+        <p class="col-md-4 mb-0 text-muted">&copy;&nbsp;2022&nbsp;Data Chasers</p>
+        <ul class="nav col-md-4 justify-content-end">
+            <li>
+                <a href="/" class="footbarHome">Home</a>
+            </li>
+
+            <% if (user) { %>
+
+                <li class="nav-item">
+                    <a href="/survey" class="nav-link px-2 text-muted">Surveys</a>
+                </li>
+
+                <% } %>
+        </ul>
+    </div>
+</nav>

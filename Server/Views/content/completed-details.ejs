@@ -1,0 +1,52 @@
+<div class="container">
+  
+  <h1 class="col-lg-6 col-md-10 col-sm-10 mt-4">
+    <%= title %>
+  </h1>
+
+  <hr />
+
+  <div class="row justify-content-lg-center g-3 container mt-4">
+    <dl class="row">
+
+      <dt class="col-sm-2">Name:</dt>
+      <dd class="col-sm-10"><%= completedSurveyDetails.Name %></dd>
+
+      <dt class="col-sm-2">Description</dt>
+      <dd class="col-sm-10"><%= completedSurveyDetails.Description %></dd>
+
+    </dl>
+  </div>
+
+  <%
+    for (let questionIdx = 0; questionIdx < completedSurveyDetails.Questions.length; questionIdx++) {
+      const question = completedSurveyDetails.Questions[questionIdx];
+  %>
+
+  <div class="card mb-4">
+
+    <div class="card-body">
+      <h4 class="card-title"><%= question.Question %></h4>
+    </div>
+
+    <ul class="list-group list-group-flush">
+
+      <%
+        for (let answerIdx = 0; answerIdx < question.Answers.length; answerIdx++) {
+          const answer = question.Answers[answerIdx];
+      %>
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col"><%= answer.Answer %></div>
+          <div class="col-2"><%= answer.Count %>&nbsp;person (<%= (answer.Count * 100) / completedSurveyDetails.CompletedCount %>%)</div>
+        </div>
+      </li>
+      <% } %>
+
+    </ul>
+
+  </div>
+
+  <% } %>
+  
+</div>

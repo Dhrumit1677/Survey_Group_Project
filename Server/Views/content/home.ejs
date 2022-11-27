@@ -1,0 +1,96 @@
+<style>
+  /* CSS */
+  * {
+    user-select: none;
+  }
+  .button-52 {
+    font-size: 16px;
+    font-weight: 200;
+    letter-spacing: 1px;
+    padding: 13px 20px 13px;
+    outline: 0;
+    border: 1px solid black;
+    cursor: pointer;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+
+  .button-52:after {
+    content: "";
+    /* background-color: #ffe54c; */
+    background-color: #43dae8;
+    width: 100%;
+    z-index: -1;
+    position: absolute;
+    height: 100%;
+    top: 7px;
+    left: 7px;
+    transition: 0.2s;
+    color: white;
+  }
+
+  .button-52:hover:after {
+    top: 0px;
+    left: 0px;
+  }
+
+  @media (min-width: 768px) {
+    .button-52 {
+      padding: 13px 50px 13px;
+    }
+  }
+  .button-52 > a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+  }
+  /* xxxxxxxxx */
+</style>
+<div class="container" id="a">
+  <div class="container col-xxl-8 px-4 py-5">
+    <br />
+
+    <div
+      class="row flex-lg-row-reverse align-items-center g-5 pb-5 ps-5 pe-5 rounded-3 border shadow"
+      id="homeMain"
+    >
+      <div class="col-10 col-sm-8 col-lg-6">
+        <img
+          src="/Assets/images/logo.jpg"
+          class="d-block mx-lg-auto img-fluid"
+          alt="Bootstrap Themes"
+          width="300"
+          height="300"
+          loading="lazy"
+        />
+      </div>
+
+      <div class="col-lg-6">
+        <h1 class="display-5 lh-1 mb-3">Welcome to Data Chasers!</h1>
+
+        <p class="lead">
+          This website allows you to create your survey and check available
+          surveys.
+        </p>
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+          <!-- <a class="btn btn-outline-secondary btn-lg px-4" href="/take-survey"
+            >Take a Survey</a
+          > -->
+          <button class="btn1 button-52" onclick="go2survey()">
+            <a href="/take-survey"> Take a Survey</a>
+          </button>
+          <button class="btn1 button-52" onclick="go2survey()">
+            <a href="/survey/create"> Create your Survey</a>
+          </button>
+          <!-- <a class="btn btn-outline-secondary btn-lg px-4" href="/survey/create"
+            >Create Your Survey</a
+          > -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,74 @@
+<div class="container">
+
+  <h1 class="col-lg-6 col-md-10 col-sm-10 mt-4">
+    <%= title %>
+  </h1>
+
+  <hr class="mb-4" />
+  
+  <!-- Message Area -->
+  <% if (messages.length > 0) { %>
+  <div id="messageArea" class="alert alert-danger">
+    <%= messages %>
+  </div>
+  <% } %>
+
+  <div class="row justify-content-lg-center g-3">
+    <form method="POST" id="questionCreateForm" class="col-lg-6 col-md-10 col-sm-10">
+
+      <div class="mb-2">
+        <label for="Question" class="form-label">Question</label>
+        <textarea class="form-control" id="Question" rows="3" name="Question"><%= question.Question %></textarea>
+      </div>
+
+      <div class="mb-2">
+        <label for="inputType" class="form-label">Type</label>
+        <select id="inputType" name="AnswerType" class="form-select" aria-label="Select question type">
+          <%
+            for (let code in types) {
+              const typeDescription = types[code];
+          %>
+          <option value="<%= code %>" <%= (question.Type || defaultSelectedType) === code ? 'selected' : '' %>><%= typeDescription %></option>
+          <% } %>
+        </select>
+      </div>
+
+      <div class="answer-type one-of-the-list few-from-the-list mb-2">
+        
+        <h4 class="col-lg-6 col-md-10 col-sm-10 my-4">
+          Answer variants
+        </h4>
+
+        <table class="table" id="tableAnswerVariants" data-answers="<%= JSON.stringify(question.Answers || []) %>"></table>
+        <div class="row">
+
+          <div class="col">
+            <input type="text" class="form-control" id="new_answer" placeholder="Type answer variant here" aria-label="Type answer variant here" value="" />
+          </div>
+
+          <div class="col-auto">
+            <button class="btn btn-outline-primary" type="button" id="add_answer_variant">
+              <i class="fas fa-plus-circle"></i>&nbsp;Add
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="mt-4 mb-2">
+          <button class="btn btn-primary" type="submit">
+            <i class="fas fa-edit"></i>&nbsp;Submit
+          </button>
+
+          <button class="btn btn-warning cancel-btn" type="button">
+            <i class="fas fa-undo"></i>&nbsp;Cancel
+          </button>
+      </div>
+    
+    </form>
+
+  </div>
+
+</div>
+

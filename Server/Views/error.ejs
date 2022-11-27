@@ -1,0 +1,15 @@
+<div class="container col-xxl-8 px-4 py-5">
+  <div class="container text-center pb-5 pt-5 rounded-3 border shadow" id="errorPage">
+      <i class="fas fa-robot fa-7x"></i>
+      <br/><br/>
+      <h1>Page Not Found</h1>
+      <br/>
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+          <a class="btn btn-secondary btn-lg px-4 gap-3" href="/">Back to Home</a>
+      </div>
+  </div>
+
+  <h1><%= message %></h1>
+  <h2><%= error.status %></h2>
+  <pre><%= error.stack %></pre>
+</div>

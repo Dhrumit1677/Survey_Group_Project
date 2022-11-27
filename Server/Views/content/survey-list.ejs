@@ -1,0 +1,61 @@
+<style></style>
+<div class="row">
+  <div class="offset-md-1 col-md-10">
+    <h1 class="col-lg-6 col-md-10 col-sm-10 mt-4 text-center"><%= title %></h1>
+
+    <hr class="mb-4" />
+
+    <div class="mb-4">
+      <a href="/survey/create" class="btn btn-primary" role="button">
+        <i class="fas fa-plus-circle"></i>&nbsp;Create Survey
+      </a>
+    </div>
+
+    <table
+      class="table table-bordered table-striped table-hover"
+      id="tableSurvey"
+    >
+      <!-- Header Row-->
+      <tr>
+        <th class="text-center">Name</th>
+        <th class="text-center">Start Date</th>
+        <th class="text-center">End Date</th>
+        <th class="text-center">Published</th>
+        <th class="text-center">Edit</th>
+        <th class="text-center">Delete</th>
+      </tr>
+
+      <!-- Repeatable Template Row -->
+      <% for(let i = 0; i < surveys.length; i++) { const survey = surveys[i]; %>
+      <tr>
+        <td class="text-center"><%= survey.Name %></td>
+
+        <td class="text-center"><%= survey.StartDate %></td>
+
+        <td class="text-center"><%= survey.EndDate %></td>
+
+        <td class="text-center"><%= survey.IsPublished ? 'Yes' : 'No' %></td>
+
+        <td class="text-center">
+          <a
+            href="/survey/<%= survey.id %>/edit"
+            class="btn btn-primary btn-sm"
+          >
+            <i class="fas fa-pencil-alt"></i>&nbsp;Edit
+          </a>
+        </td>
+
+        <td class="text-center">
+          <a
+            href="/survey/<%= survey.id %>/delete"
+            class="btn btn-danger btn-sm delete"
+            data-redirect="survey"
+          >
+            <i class="fas fa-trash-alt"></i>&nbsp;Delete
+          </a>
+        </td>
+      </tr>
+      <% } %>
+    </table>
+  </div>
+</div>

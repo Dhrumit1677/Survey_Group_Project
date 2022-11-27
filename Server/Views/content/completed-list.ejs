@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="offset-md-1 col-md-10">
+    <h1 class="col-lg-6 col-md-10 col-sm-10 mt-4"><%= title %></h1>
+
+    <hr class="mb-4" />
+
+    <table
+      class="table table-bordered table-striped table-hover"
+      id="tableCompletedSurveys"
+    >
+      <!-- Header Row-->
+      <tr>
+        <!-- <th class="text-center">ID</th> -->
+        <th class="text-center">Name</th>
+        <th class="text-center">Number of Responses</th>
+      </tr>
+
+      <% for (let surveyId in completedSurveysGroupedById) { const { survey,
+      count } = completedSurveysGroupedById[surveyId]; %>
+      <tr>
+        <td class="text-center"><%= survey.Name %></td>
+
+        <td class="text-center"><%= count %></td>
+      </tr>
+      <% } %>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-4 g-4">
+    <% if(surveys.length == 0){ %>
+    <h1>Opps! No Surveys available</h1>
+    <% } %> <% for(let i = 0; i < surveys.length; i++) { const survey =
+    surveys[i]; %>
+    <div class="col">
+      <div class="card h-100 text-center">
+        <div class="card-body">
+          <h5 class="card-title"><%= survey.Name %></h5>
+          <p class="card-text"><%= survey.Description %></p>
+        </div>
+        <div class="card-footer">
+          <a href="/take-survey/<%= survey.id %>" class="btn btn-primary"
+            >Take a survey</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <% } %>
+  </div>
+</div>

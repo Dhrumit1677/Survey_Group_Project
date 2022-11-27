@@ -1,0 +1,53 @@
+{
+  "name": "swift-project",
+  "version": "0.1.0",
+  "description": "Survey app",
+  "main": "server.js",
+  "author": "Team",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "node .",
+    "dev": "ts-node --files server.ts"
+  },
+  "engines": {
+    "node": "^16.16.0",
+    "npm": "^8.11.0"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.1.2",
+    "@popperjs/core": "^2.11.5",
+    "bootstrap": "5.2.0-beta1",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "debug": "^4.3.4",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "http-errors": "^2.0.0",
+    "jquery": "^3.6.0",
+    "mongoose": "^6.3.6",
+    "morgan": "^1.10.0",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^7.1.2",
+    "typescript": "^4.7.4"
+  },
+  "devDependencies": {
+    "@types/connect-flash": "^0.0.37",
+    "@types/cookie-parser": "^1.4.3",
+    "@types/cors": "^2.8.12",
+    "@types/debug": "^4.1.7",
+    "@types/ejs": "^3.1.1",
+    "@types/express": "^4.17.13",
+    "@types/express-session": "^1.17.4",
+    "@types/http-errors": "^1.8.2",
+    "@types/jquery": "^3.5.14",
+    "@types/morgan": "^1.9.3",
+    "@types/node": "^17.0.35",
+    "@types/passport": "^1.0.9",
+    "@types/passport-local": "^1.0.34",
+    "ts-node": "^10.9.1"
+  }
+}

@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="container col-xxl-8 px-4 py-5">
+      <div class="row flex-lg-row-reverse align-items-center g-5 pb-5 ps-5 pe-5 rounded-3 border shadow" id="homeMain">
+        
+        <p class="lead"><%= survey.Name %></p>
+
+        <hr class="mt-0" />
+
+        <p class="display-6 text-center"><%= question.Question %></p>
+
+        <div id="answers-container" data-type="<%= question.Type %>" data-answers="<%= JSON.stringify(question.Answers) %>"></div>
+
+      </div>
+  </div>
+</div>
